@@ -13,7 +13,7 @@ import $ from 'jquery'
 // const $ = require('jquery')就和这个 node 语法类似
 
 $(function () {
-    $('li:odd').css('backgroundColor','lightblue')
+    $('li:odd').css('backgroundColor','green');
     $('li:even').css('backgroundColor',function () {
         return '#' + 'E35265'
     })
@@ -31,15 +31,29 @@ $(function () {
 // 所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。当我们用npm install 命令下载包的时候，就是根据这
 // 个配置文件，自动下载所需的模块。
 
+// 方法1见上面  webpack 要打包的文件的路径 打包好的文件存放的路径
 
+// 方法2见 webpack.config.js 文件  只有输入webpack就能打包
 
+// 方法3 使用 webpack-dev-server 这个工具，来实现自动打包编译的功能
 
+// 1. 运行 npm i webpack-dev-server -D 把这个工具安装到项目的本地开发依赖
 
+// 2. 安装完成之后，这个工具的用法，和 webpack 命令的用法完全一样
 
+// 3. 由于我们是在项目中，本地安装(项目)的 webpack-dev-server，所以，无法把它当做 脚本命令，在 powershell 终端中直接运行(只有那些 安装到 全局 -g 的工具，才能在 终端中 正常执行)
 
+// 4. 注意：webpack-dev-server 这个工具，如果想要正常运行，要求在本地项目中，必须安装 webpack 即使你全局安装了webpack，你也要在本地中再安装一个
 
+// 5. 注意：webpack-dev-server 这个工具打包好的 bundle.js 并不是放在dist文件夹里的，不是 ../dist/bundle.js 这个，所以
+//    引用 ../dist/bundle.js 页面显示没变化
 
+// 6. 注意：webpack-dev-server 这个工具帮我们打包生成的 bundle.js 文件，并没有存放到 实际的 物理磁盘上 (但是你访问http://localhost:8080/bundle.js却是存在的)
+//    而是直接托管到了 电脑的内存中 ，所以，我们在 项目根目录中 ，找不到这个打包好的 bundle.js 文件
 
+// 7. 注意：在 package.json 文件中 找到 scripts 中的 dev 后面的参数 变化 --open(表示运行完之后直接打开浏览器)
+//    --port 端口号(表示你自己想要哪个端口号) --contentBase 文件夹名称(表示你打开的时候默认哪个文件夹为根目录)
+//    --hot(表示热更新，局部刷新页面，如果是修改css代码，则页面不会刷新)
 
 
 
