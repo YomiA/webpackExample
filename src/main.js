@@ -10,12 +10,33 @@
 // 8.在 package.json 文件中加入 "dev": "webpack --mode development","build": "webpack --mode production" 是为了消除打包时的警告
 import $ from 'jquery'
 
+// 使用 import 语法导入css样式表
+import './css/style.css'
+// 注意：webpack 默认只能打包处理 js 类型的文件，无法处理其他的非 js 类型的文件
+// 如果要处理非 js 类型的文件，我们需要手动安装一些 合适的 第三方 loader 加载器
+// 1.如果想要打包处理 css 文件，需要安装 cnpm i style-loader css-loader -D 俩个包
+// 2.打开 webpack.config.js 这个配置文件，在里面新增一个配置节点，叫做 module 这是一个对象，在这个对象里面有个rules
+//   属性，这个 rules 属性是一个数组，这个数组中，存放了所有第三方文件的匹配和处理规则；
+
+// webpack 处理第三方文件类型的总结和过程：
+// 1.发现这个要处理的文件不是js文件，然后就去配置文件(webpack.config.js)中去查找有没有对应的第三方 loader 规则
+// 2.如果能找到对应的规则，就会调用 对应的 loader 处理这种文件类型；
+// 3.在调用loader的时候，是从右往左调用的(css-loader ---> style-loader)
+// 4.当最后一个 loader 调用完毕，会把处理结果直接交给 webpack 进行打包合并，最终输出到 bundle.js 中去
+
+// 要安装 cnpm i less-loader -D 和 cnpm i less -D
+import './css/style.less'
+// 要安装 cnpm i sass-loader -D 和 cnpm i node-sass -D 和 cnpm i sass -D 和 cnpm i fibers -D
+import './css/style.scss'
+
+
+
 // const $ = require('jquery')就和这个 node 语法类似
 
 $(function () {
-    $('li:odd').css('backgroundColor','green');
+    $('li:odd').css('backgroundColor','lightblue');
     $('li:even').css('backgroundColor',function () {
-        return '#' + 'E35265'
+        return '#' + '6c6af4'
     })
 })
 

@@ -7,7 +7,11 @@
 <!--    <script type="text/javascript" src="./main.js"></script>-->
 <!--    5.所以通过 webpack 这么一个前端构建工具，把 main.js 做了一下处理 生成了一个 bundle.js 的文件-->
 <!--    <script type="text/javascript" src="../dist/bundle.js"></script>-->
-    <script type="text/javascript" src="/bundle.js"></script>
+
+<!--    当使用 html-webpack-plugin 插件后，我们不再需要手动处理 bundle.js 的引用路径了，因为这个插件已经自动帮我们创建
+        了一个 合适的 bundle.js ,并且引用了 正确的路径 -->
+
+<!--    <script type="text/javascript" src="/bundle.js"></script>-->
 <!--    1.这是正常的表现，但是有了webpack之后不推荐使用如下这样-->
 <!--      <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>-->
 <!--    2.注意：不推荐直接在这里引用任何包(js)和任何CSS文件,如果在这里引用很多的静态的css和js文件，会发起二次请求。浪费时间-->
