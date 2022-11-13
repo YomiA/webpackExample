@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "^3.5.1",
     "vue": "^2.6.11",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "css-loader": "^3.5.3",
